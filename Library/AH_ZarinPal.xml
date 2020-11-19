@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <b4x_version>9.90</b4x_version>
+  <dependsOn>json</dependsOn>
+  <dependsOn>richstring</dependsOn>
+  <dependsOn>webviewextras2</dependsOn>
+  <class>
+    <name>ir.zarinpal.programingcenter.ah_zarinpal_beautiful</name>
+    <shortname>AH_ZarinPal_Beautiful</shortname>
+    <comment>Class module
+</comment>
+    <owner>activity</owner>
+    <permission>android.permission.INTERNET</permission>
+    <event>Request (Status As String, Kod_Payment As String)</event>
+    <event>Support_Click</event>
+    <event>ProgressDialog (Dialog As String , Visible As Boolean)</event>
+    <event>Messaging (Message as string ,Titel as string)</event>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="DesignerCreateView">_designercreateview</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Base</name>
+        <type>anywheresoftware.b4a.objects.PanelWrapper</type>
+      </parameter>
+      <parameter>
+        <name>Lbl</name>
+        <type>anywheresoftware.b4a.objects.LabelWrapper</type>
+      </parameter>
+      <parameter>
+        <name>Props</name>
+        <type>anywheresoftware.b4a.objects.collections.Map</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Font">_font</name>
+      <comment>	حتما این کد رو بزارید در غیر این صورت لایبری ممکنه خطا بده یا اینکه آیکون هایی که درش استفاده شده نمایش داده نشود!
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Beautiful1.Font(Typeface.MATERIALICONS)&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Material_Icon</name>
+        <type>anywheresoftware.b4a.keywords.constants.TypefaceWrapper</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Get_View">_get_view</name>
+      <comment>	با استفاده از این کد درصورتی که میخواید کتابخونه رو بصورت کد نویسی اضافه کنید استفاده کنید
+
+	Example:
+	&lt;code&gt;Activity.AddView(AH_ZarinPal_Beautiful1.Get_View,0,0,100%x,100%y)&lt;/code&gt;
+</comment>
+      <returntype>anywheresoftware.b4a.objects.PanelWrapper</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>IN THE NAME OF GOD
+This Library have PHP code!
+Alireza Hassanzadeh
+
+	در این نسخه میتوانید کتابخونه رو هم بصورت کد نویسی و هم از طریق دیزاینر اضافه کنید
+	یادتون نره که کتابخونه رو جتی فای کنید!
+	لطفا سورسی که همراه کتابخونه قرار داده شده رو هم مشاهده کنید تا بتوانید بیشتر از امکانات کتابخونه استفاده کنید
+
+	نمایش زرین پال بصورت زیبا و اضافه کردنش از طریق کد نویسی یا اد ویو
+	Example:
+	&lt;code&gt;AH_ZarinPal_Beautiful1.Initialize(Me,"AH_ZarinPal_Beautiful1")'x برای متغیر اولی حتما همین باشه و برای متغیر دومی اونت نیم دلخواهتون رو بزنید که بعد از پرداخت با اون اونت سابتون اجرا بشه
+	Activity.AddView(AH_ZarinPal_Beautiful1.Get_View,0,0,100%x,100%y)'x با این کد لایبری رو به اکتیوتی تون اضافه میکنید
+	AH_ZarinPal_Beautiful1.YourURL("https://www.Your-URL.ir/ZarinPal")'x آدرس پوشه لایبری رو بدون کارکتر / در آخر وارد کنید
+	AH_ZarinPal_Beautiful1.YourData(CreateMap("":""))'x اطلاعات اضافی که بصورت مپ به لایبری می دهید و لایبری بصورت جیسون میفرسته به پی اچ پی ها و اینکه میتونید در پی اچ پی وریفای ازش استفاده کنید
+	AH_ZarinPal_Beautiful1.TabColor(Colors.Blue)'x رنگ تایتل رو وارد کنید
+	AH_ZarinPal_Beautiful1.Merchand_Id("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")'x مرچند کدی که از زرین پال گرفتین رو در اینجا وارد کنید
+	AH_ZarinPal_Beautiful1.Amount = 1000 'x قیمت به تومن
+	AH_ZarinPal_Beautiful1.Description = "نمونه ویژه" 'x توضیحاتی درباره محصولی که میخواهید بابت آن پولی دریافت کنید
+	AH_ZarinPal_Beautiful1.Email = "info@gmail.com" 'x اگه نمی خواید که از کاربرتون ایمیل دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Beautiful1.phone = "09123456789"'x اگه نمی خواید که از کاربرتون شماره دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Beautiful1.Font(Typeface.MATERIALICONS)'x حتما برای نمایش بصورت زیبا و خطا نداشتن لایبری حتما این کد را وارد کنید
+	AH_ZarinPal_Beautiful1.Start_Pay'x تمامی کد ها رو باید قبل از این کد بنویسید.&lt;/code&gt;
+
+
+	نمایش زرین پال بصورت زیبا و اضافه کردنش از طریق دیزاینر و اضافه کردنش از طریق لود لایوت
+	Example:
+	&lt;code&gt;	Activity.LoadLayout("Layout1")'x لایوتی که درش کتابخونه رو در دیزاینر اضافه کردین بنویسید
+	AH_ZarinPal_Beautiful1.YourURL("https://www.Your-URL.ir/ZarinPal")'x آدرس پوشه لایبری رو بدون کارکتر / در آخر وارد کنید
+	AH_ZarinPal_Beautiful1.YourData(CreateMap("":""))'x اطلاعات اضافی که بصورت مپ به لایبری می دهید و لایبری بصورت جیسون میفرسته به پی اچ پی ها و اینکه میتونید در پی اچ پی وریفای ازش استفاده کنید
+	AH_ZarinPal_Beautiful1.TabColor(Colors.Blue)'x رنگ تایتل رو وارد کنید
+	AH_ZarinPal_Beautiful1.Merchand_Id("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")'x مرچند کدی که از زرین پال گرفتین رو در اینجا وارد کنید
+	AH_ZarinPal_Beautiful1.Amount = 1000 'x قیمت به تومن
+	AH_ZarinPal_Beautiful1.Description = "نمونه ویژه" 'x توضیحاتی درباره محصولی که میخواهید بابت آن پولی دریافت کنید
+	AH_ZarinPal_Beautiful1.Email = "info@gmail.com" 'x اگه نمی خواید که از کاربرتون ایمیل دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Beautiful1.phone = "09123456789"'x اگه نمی خواید که از کاربرتون شماره دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Beautiful1.Font(Typeface.MATERIALICONS)'x حتما برای نمایش بصورت زیبا و خطا نداشتن لایبری حتما این کد را وارد کنید
+	AH_ZarinPal_Beautiful1.Start_Pay'x تمامی کد ها رو باید قبل از این کد بنویسید.&lt;/code&gt;
+
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>Your_Activity</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>EventName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Merchand_Id">_merchand_id</name>
+      <comment>	مرچند آیدی خودتون رو در اینجا وارد کنید
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Beautiful1.Merchand_Id ("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>YOUR_MERCHAND_ID</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Start_Pay">_start_pay</name>
+      <comment>	حتما حتما توضیحاتی که در بخش اینشالیز دادم رو مطالعه کنید.
+	قبل از اجرای این کد لطفا تمامی ورودی هارو وارد کنید که میتوانید از بخش اینشالیز کد های آماده رو بردارید.
+	درصورتی که موارد خواسته شده رو به لایبری نداده باشید لایبری در قسمت لاگ بهتون میگه چه چیز هایی رو خطا دارید.
+
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="TabColor">_tabcolor</name>
+      <comment>	برای تغییر رنگ تایتل لایبری لطفا یک رنگ رو به لایبری بدین!
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Beautiful1.Font(Typeface.MATERIALICONS)&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Color</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="YourData">_yourdata</name>
+      <comment>	اطلاعات یا دیتا های خودتون رو به پی اچ پی وریفای بفرستید!
+	Example:
+	&lt;code&gt;	Dim Map As Map
+	Map.Initialize
+	Map.Put("UserName","AlirezaHassanzadeh")
+	Map.Put("Mahsol_ID","123456789")
+	AH_ZarinPal_Beautiful1.YourData(Map)&lt;/code&gt;
+
+	یا از کد زیر استفاده کنید
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Beautiful1.YourData(CreateMap("UserName":"AlirezaHassanzadeh","Mahsol_ID":"123456789"))&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>YourDatas</name>
+        <type>anywheresoftware.b4a.objects.collections.Map</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="YourURL">_yoururl</name>
+      <comment>	مرچند آیدی خودتون رو در اینجا وارد کنید
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Beautiful1.Merchand_Id ("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>YOUR_URL</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <field>
+      <name DesignerName="Amount">_amount</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name DesignerName="Description">_description</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="Email">_email</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="phone">_phone</name>
+      <returntype>String</returntype>
+    </field>
+  </class>
+  <class>
+    <name>ir.zarinpal.programingcenter.ah_zarinpal_simple</name>
+    <shortname>AH_ZarinPal_Simple</shortname>
+    <comment>Class module
+</comment>
+    <owner>activity</owner>
+    <permission>android.permission.INTERNET</permission>
+    <event>Request (Status As String, Kod_Payment As String)</event>
+    <event>ProgressDialog (Dialog As String , Visible As Boolean)</event>
+    <event>Messaging (Message as string ,Titel as string)</event>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="DesignerCreateView">_designercreateview</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Base</name>
+        <type>anywheresoftware.b4a.objects.PanelWrapper</type>
+      </parameter>
+      <parameter>
+        <name>Lbl</name>
+        <type>anywheresoftware.b4a.objects.LabelWrapper</type>
+      </parameter>
+      <parameter>
+        <name>Props</name>
+        <type>anywheresoftware.b4a.objects.collections.Map</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Get_View">_get_view</name>
+      <comment>	با استفاده از این کد درصورتی که میخواید کتابخونه رو بصورت کد نویسی اضافه کنید استفاده کنید
+
+	Example:
+	&lt;code&gt;Activity.AddView(AH_ZarinPal_Simple1.Get_View,0,0,100%x,100%y)&lt;/code&gt;
+</comment>
+      <returntype>anywheresoftware.b4a.objects.PanelWrapper</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>IN THE NAME OF GOD
+This Library have PHP code!
+Alireza Hassanzadeh
+
+	در این نسخه میتوانید کتابخونه رو هم بصورت کد نویسی و هم از طریق دیزاینر اضافه کنید
+	یادتون نره که کتابخونه رو جتی فای کنید!
+	لطفا سورسی که همراه کتابخونه قرار داده شده رو هم مشاهده کنید تا بتوانید بیشتر از امکانات کتابخونه استفاده کنید
+
+	نمایش زرین پال بصورت معمولی و اضافه کردنش از طریق کد نویسی یا اد ویو
+	Example:
+	&lt;code&gt;AH_ZarinPal_Simple1.Initialize(Me,"AH_ZarinPal_Simple1")'x برای متغیر اولی حتما همین باشه و برای متغیر دومی اونت نیم دلخواهتون رو بزنید که بعد از پرداخت با اون اونت سابتون اجرا بشه
+	Activity.AddView(AH_ZarinPal_Simple1.Get_View,0,0,100%x,100%y)'x با این کد لایبری رو به اکتیوتی تون اضافه میکنید
+	AH_ZarinPal_Simple1.Merchand_Id("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")'x مرچند کدی که از زرین پال گرفتین رو در اینجا وارد کنید
+	AH_ZarinPal_Simple1.YourURL("https://www.Your-URL.ir/ZarinPal")'x آدرس پوشه لایبری رو بدون کارکتر / در آخر وارد کنید
+	AH_ZarinPal_Simple1.YourData(CreateMap("":""))'x اطلاعات اضافی که بصورت مپ به لایبری می دهید و لایبری بصورت جیسون میفرسته به پی اچ پی ها و اینکه میتونید در پی اچ پی وریفای ازش استفاده کنید
+	AH_ZarinPal_Simple1.Amount = 1000 'قیمت به تومان
+	AH_ZarinPal_Simple1.Description = "نمونه ساده" 'x توضیحاتی درباره محصولی که میخواهید بابت آن پولی دریافت کنید
+	AH_ZarinPal_Simple1.Email = "info@gmail.com" 'x اگه نمی خواید که از کاربرتون ایمیل دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Simple1.phone = "09123456789" 'x اگه نمی خواید که از کاربرتون شماره دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Simple1.Start_Pay'x تمامی کد ها رو باید قبل از این کد بنویسید.&lt;/code&gt;
+
+
+	نمایش زرین پال بصورت معمولی و اضافه کردنش از طریق دیزاینر و اضافه کردنش از طریق لود لایوت
+	Example:
+	&lt;code&gt;Activity.LoadLayout("Layout1")'x لایوتی که درش کتابخونه رو در دیزاینر اضافه کردین بنویسید
+	AH_ZarinPal_Simple1.Merchand_Id("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")'x مرچند کدی که از زرین پال گرفتین رو در اینجا وارد کنید
+	AH_ZarinPal_Simple1.YourURL("https://www.Your-URL.ir/ZarinPal")'x آدرس پوشه لایبری رو بدون کارکتر / در آخر وارد کنید
+	AH_ZarinPal_Simple1.YourData(CreateMap("":""))'x اطلاعات اضافی که بصورت مپ به لایبری می دهید و لایبری بصورت جیسون میفرسته به پی اچ پی ها و اینکه میتونید در پی اچ پی وریفای ازش استفاده کنید
+	AH_ZarinPal_Simple1.Amount = 1000 'x قیمت به تومن
+	AH_ZarinPal_Simple1.Description = "نمونه ساده" 'x توضیحاتی درباره محصولی که میخواهید بابت آن پولی دریافت کنید
+	AH_ZarinPal_Simple1.Email = "info@gmail.com" 'x اگه نمی خواید که از کاربرتون ایمیل دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Simple1.phone = "09123456789" 'x اگه نمی خواید که از کاربرتون شماره دریافت کنید که در اینجا وارد بشه میتونید این کد را پاک کنید
+	AH_ZarinPal_Simple1.Start_Pay'x تمامی کد ها رو باید قبل از این کد بنویسید.&lt;/code&gt;
+
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>JustWrite_Me</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>EventName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Merchand_Id">_merchand_id</name>
+      <comment>	مرچند آیدی خودتون رو در اینجا وارد کنید
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Simple1.Merchand_Id ("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>YOUR_MERCHAND_ID</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Start_Pay">_start_pay</name>
+      <comment>	حتما حتما توضیحاتی که در بخش اینشالیز دادم رو مطالعه کنید.
+	قبل از اجرای این کد لطفا تمامی ورودی هارو وارد کنید که میتوانید از بخش اینشالیز کد های آماده رو بردارید.
+	درصورتی که موارد خواسته شده رو به لایبری نداده باشید لایبری در قسمت لاگ بهتون میگه چه چیز هایی رو خطا دارید.
+
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="YourData">_yourdata</name>
+      <comment>	اطلاعات یا دیتا های خودتون رو به پی اچ پی وریفای بفرستید!
+	Example:
+	&lt;code&gt;	Dim Map As Map
+	Map.Initialize
+	Map.Put("UserName","AlirezaHassanzadeh")
+	Map.Put("Mahsol_ID","123456789")
+	AH_ZarinPal_Simple1.YourData(Map)&lt;/code&gt;
+
+	یا از کد زیر استفاده کنید
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Simple1.YourData(CreateMap("UserName":"AlirezaHassanzadeh","Mahsol_ID":"123456789"))&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>YourDatas</name>
+        <type>anywheresoftware.b4a.objects.collections.Map</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="YourURL">_yoururl</name>
+      <comment>	پوشه ای که در آن فایل های پی اچ پی را ریختید وارد کنید
+	حتما حتما در کارکتر آخر / نزارید!
+
+	Example:
+	&lt;code&gt;AH_ZarinPal_Simple1.YourURL("https://www.Your-URL.ir/ZarinPal")&lt;/code&gt;
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>YOUR_URL</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <field>
+      <name DesignerName="Amount">_amount</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name DesignerName="Description">_description</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="Email">_email</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name DesignerName="phone">_phone</name>
+      <returntype>String</returntype>
+    </field>
+  </class>
+  <version>2.2</version>
+  <author>Alireza Hassanzadeh</author>
+</root>

@@ -1,0 +1,44 @@
+﻿Build1=Zarinpal,ir.zarinpalsimplecode.programingcenter
+Group=Default Group
+Library1=core
+Library2=ah_zarinpal
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="28"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.DarkTheme)~\n~'End of default text.~\n~
+Module1=PayMent
+Module2=Starter
+NumberOfFiles=0
+NumberOfLibraries=2
+NumberOfModules=2
+Version=9.9
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	PayMent.Amount = 1000
+	PayMent.Description = "پرداخت ساده با اد ویو"
+	PayMent.Email = "info@gmail.com"
+	PayMent.Merchand_Id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+	PayMent.phone = "09152079018"
+	PayMent.YourData = CreateMap("":"")
+	PayMent.YourURL = "https://www.Your-URL.ir/ZarinPal"
+	StartActivity(PayMent)
+End Sub
